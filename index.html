@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Calculadora gasolina ou alcool">
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Calcular Combustível</title>
+</head>
+
+<body>
+    
+  <main class="container">
+    <img class="logo" src="./assets/fullmomo.jpg" alt="Logo da gasolina ou alcool" />
+    <h1 class="title">Qual melhor opção ?</h1>
+
+     <form  onsubmit="calcular(event)" class="form">
+        <label>Álcool - $ p litro:</label>
+        <input 
+        id="alcool"
+        class="input"
+        type="number"
+        placeholder="3.25"
+        min="1"
+        step="0.01"
+        required
+        />
+
+        <label>Gasolina - $ p litro:</label>
+        <input 
+        id="gasolina"
+        class="input"
+        type="number"
+        placeholder="5.70"
+        min="1"
+        step="0.01"
+        required
+        />
+
+        <input class="buttom" type="submit" value="Calcular" />
+     </form>
+
+     <section id="content-result" class="result hide" >
+        <span id="text-result">Compensa Usar Álcool!</span>
+
+        <span id="alcool-result">Álcool R$ 3.25</span>
+        <span id="gasolina-result">Gasolina R$ 5.70</span>
+     </section>
+
+  </main>
+
+  <div class="info">
+   <span class="tool">Siga o Desenvolvedor:</span>
+   <a href="https://www.instagram.com/lyon_10k">
+      <img class="img-info" src="./assets/infominip.png" alt="Informações" />
+   </a>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
