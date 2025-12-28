@@ -4,59 +4,115 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="Calculadora gasolina ou alcool">
+    <meta name="description" content="Calculadora para comparar álcool e gasolina usando a regra dos 70% e descobrir qual compensa mais.">
+    <meta name="keywords" content="Calculadora, gasolina, álcool, etanol, regra dos 70%">
     <link rel="stylesheet" href="style.css" />
 
     <title>Calcular Combustível</title>
 </head>
 
 <body>
-    
-  <main class="container">
-    <img class="logo" src="./assets/fullmomo.jpg" alt="Logo da gasolina ou alcool" />
-    <h1 class="title">Qual melhor opção ?</h1>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#" aria-label="Início">
+        <img class="brand__logo" src="./assets/logoloja.png" alt="Logotipo" />
+        <span class="brand__name">Calcular Combustível</span>
+      </a>
+      <span class="topbar__badge" aria-label="Método">Regra dos 70%</span>
+    </div>
+  </header>
 
-     <form  onsubmit="calcular(event)" class="form">
-        <label>Álcool - $ p litro:</label>
-        <input 
-        id="alcool"
-        class="input"
-        type="number"
-        placeholder="3.25"
-        min="1"
-        step="0.01"
-        required
-        />
+  <main class="page">
+    <section class="card" aria-labelledby="page-title">
+      <div class="hero">
+        <img class="hero__image" src="./assets/fullmomo.jpg" alt="Imagem ilustrativa" />
+        <div class="hero__content">
+          <h1 id="page-title" class="title">Qual compensa mais: álcool ou gasolina?</h1>
+          <p class="subtitle">Informe os preços por litro e veja a recomendação com base na regra de 70%.</p>
+        </div>
+      </div>
 
-        <label>Gasolina - $ p litro:</label>
-        <input 
-        id="gasolina"
-        class="input"
-        type="number"
-        placeholder="5.70"
-        min="1"
-        step="0.01"
-        required
-        />
+      <form id="calc-form" class="form" novalidate>
+        <div class="field">
+          <label class="label" for="alcool">Preço do álcool (etanol) por litro</label>
+          <div class="control">
+            <span class="prefix" aria-hidden="true">R$</span>
+            <input
+              id="alcool"
+              name="alcool"
+              class="input"
+              type="number"
+              placeholder="3.25"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <p class="hint">Ex.: 3,25</p>
+        </div>
 
-        <input class="buttom" type="submit" value="Calcular" />
-     </form>
+        <div class="field">
+          <label class="label" for="gasolina">Preço da gasolina por litro</label>
+          <div class="control">
+            <span class="prefix" aria-hidden="true">R$</span>
+            <input
+              id="gasolina"
+              name="gasolina"
+              class="input"
+              type="number"
+              placeholder="5.70"
+              min="0"
+              step="0.01"
+              inputmode="decimal"
+              autocomplete="off"
+              required
+            />
+          </div>
+          <p class="hint">Ex.: 5,70</p>
+        </div>
 
-     <section id="content-result" class="result hide" >
-        <span id="text-result">Compensa Usar Álcool!</span>
+        <div class="actions">
+          <button class="button" type="submit">Calcular</button>
+          <button class="button button--ghost" type="button" id="btn-clear">Limpar</button>
+        </div>
+      </form>
 
-        <span id="alcool-result">Álcool R$ 3.25</span>
-        <span id="gasolina-result">Gasolina R$ 5.70</span>
-     </section>
+      <section id="content-result" class="result hide" aria-live="polite" aria-atomic="true">
+        <div class="result__header">
+          <div class="result__icon" aria-hidden="true"></div>
+          <div>
+            <p class="result__title" id="text-result">Utilize o Álcool</p>
+            <p class="result__meta" id="ratio-result">Relação: 0,00</p>
+          </div>
+        </div>
 
+        <div class="result__grid" role="list">
+          <div class="result__item" role="listitem">
+            <span class="result__label">Álcool</span>
+            <strong class="result__value" id="alcool-result">R$ 0,00</strong>
+          </div>
+          <div class="result__item" role="listitem">
+            <span class="result__label">Gasolina</span>
+            <strong class="result__value" id="gasolina-result">R$ 0,00</strong>
+          </div>
+        </div>
+
+        <p class="result__note">Dica: se a relação álcool ÷ gasolina for menor que 0,70, o álcool tende a compensar.</p>
+      </section>
+    </section>
   </main>
 
-  <div class="info">
-   <span class="tool">Siga o Desenvolvedor:</span>
-   <a href="https://www.instagram.com/lyon_10k">
-      <img class="img-info" src="./assets/infominip.png" alt="Informações" />
-   </a>
-  </div>
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__text">Feito para comparação rápida — valores podem variar por veículo e região.</span>
+      <a class="footer__link" href="https://www.instagram.com/lyon_10k" target="_blank" rel="noreferrer">
+        <img class="footer__icon" src="./assets/infominip.png" alt="" aria-hidden="true" />
+        <span>Siga o desenvolvedor</span>
+      </a>
+    </div>
+  </footer>
 
   <script src="script.js"></script>
 </body>
